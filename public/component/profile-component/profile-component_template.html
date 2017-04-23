@@ -1,0 +1,43 @@
+    <div class="ui grid" id="profile">
+        <div class="ten wide column">
+            <div class="">
+                <div style="margin-bottom:10px" class="">
+                    <h4>Your URL</h4>
+                </div>
+                <div class="ui action input">
+                    <input id="url" style="min-width: 240px;width: 320px;" ng-readonly="true" type="text" ng-model="$ctrl.url" value="http://ww.short.url/c0opq">
+                        <button ngclipboard data-clipboard-target="#url" class="ui teal right labeled icon button">
+                        <i class="copy icon"></i>
+                        Copy
+                    </button>
+                </div>
+            </div>
+
+            <div ng-click="!IsClickEnable||DoSomethingElse()" ng-repeat="feedback in $ctrl.feedback" class="ui raised segment">
+                <div id="content" contenteditable="false" class="feedback">
+                    <!-- <text-angular ng-model="feedback.feedback"></text-angular> -->
+                    <div ng-bind-html="feedback.feedback"></div>
+                </div>
+
+                <div class="ui fitted divider"></div>
+                <div class="time">
+                    <span><i class="wait icon"></i></span> {{feedback.createdAt|date:'medium'}}
+                </div>
+            </div>
+        </div>
+        <div class="two wide column">
+
+        </div>
+        <div class="four wide column">
+            <div class="ui statistic">
+                <div class="value">
+                    {{$ctrl.feedback.length}}
+                </div>
+                <div class="label">
+                    Feedback
+                </div>
+            </div>
+
+
+        </div>
+    </div>

@@ -1,0 +1,36 @@
+<div class="ui grid">
+    <div class="one wide column">
+    </div>
+    <div class="nine wide column">
+        <div ng-hide="$ctrl.feedbackSubmit" id="feedback-input" class="ui form">
+            <div class="field">
+                <label id="feedback-label">Give Your Feedback</label>
+                <textarea froala="$ctrl.froalaOptions" ng-model="$ctrl.feedback"></textarea>
+            </div>
+        </div>
+        <div ng-show="$ctrl.feedbackSubmit" class="ui raised segment">
+            <div id="content" contenteditable="false" class="feedback">
+                <div ng-bind-html="$ctrl.feedbackDetails.feedback"></div>
+            </div>
+            <div class="ui fitted divider"></div>
+            <div class="time">
+                <span><i class="wait icon"></i></span> {{$ctrl.feedbackDetails.createdAt|date:'medium'}}
+            </div>
+        </div>
+        <div ng-if="$ctrl.feedbackSubmit" class="ui steps">
+            <div class="completed step">
+                <i class="payment icon"></i>
+                <div class="content">
+                    <div class="title">Feedback</div>
+                    <div class="description">Feedback Submit Successfully</div>
+                </div>
+            </div>
+        </div>
+        <div class="" id="submit-button">
+            <button ng-if="!$ctrl.feedbackSubmit" ng-click="$ctrl.sendFeedback()" class="ui positive right labeled icon button">submit
+            <i class="checkmark icon"></i></button>
+            <button ng-if="$ctrl.feedbackSubmit" ng-click="$ctrl.editFeedback()" class="ui positive right labeled icon button">Edit
+            <i class="checkmark icon"></i></button>
+        </div>
+    </div>
+</div>

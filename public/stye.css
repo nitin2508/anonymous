@@ -1,0 +1,107 @@
+.event-heading {
+    text-align: center;
+}
+
+#feedback-input {
+    margin: 20px;
+}
+
+#signUp {}
+
+#signUp:hover {
+    color: blue;
+    cursor: pointer;
+}
+
+#profile {
+    margin: 20px;
+}
+
+.time {
+    margin-top: 8px;
+    text-align: right;
+}
+
+.feedback {
+    margin-bottom: 8px;
+}
+
+#submit-button {
+    margin-right: 20px;
+    text-align: right;
+}
+
+.fr-element {
+    min-height: 200px !important;
+    border: 1px solid #e7e7ea;
+}
+
+#feedback-label {
+    font-size: 20px;
+    margin-bottom: 14px;
+    margin-left: 10px;
+    margin-top: 30px;
+}
+
+.ta-toolbar {
+    display: none;
+}
+
+.ta-toolbar.focussed {
+    display: none;
+}
+
+. btn-toolbar {
+    display: none;
+}
+
+
+/*//for loading*/
+
+
+/*.ta-editor{
+    display:none;
+}*/
+
+.content-loader {
+    /*@extend loader-img;*/
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 600;
+    background-color: rgba(10, 10, 10, 0.3);
+}
+
+.content-loader .loader-container {
+    padding: 10px;
+    background-color: rgba(10, 10, 10, 0.4);
+    border-radius: 10px;
+}
+
+.content-loader .loading-state {
+    position: relative;
+    font-size: 14px;
+    color: #FFFFFF;
+}
+
+#loader {
+    top: 34%;
+    left: 45%;
+    position: absolute;
+    padding: 10px;
+    background-color: rgba(10, 10, 10, 0.4);
+    border-radius: 10px;
+}
+
+#loader-heading {
+    text-align: center;
+    font-size: 18px;
+    color: #052542;
+}
+
+.fr-emoticon-img {
+    display: -webkit-inline-box;
+    background-repeat: no-repeat;
+    width: 20px;
+}

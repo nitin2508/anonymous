@@ -1,0 +1,93 @@
+<div class="">
+    <div class="ui  grid">
+        <div class="four wide column"></div>
+        <div class="five wide column"></div>
+        <div style="margin-top:10vh" class="ui existing segment five wide column">
+            <h3 class="event-heading">Log In</h3>
+            <form class="ui form">
+
+                <div class="field">
+                    <label>User Name</label>
+                    <input type="text" ng-model="$ctrl.loginUsername" name="first-name" placeholder="First Name">
+                </div>
+                <div class="field">
+                    <label>Password</label>
+                    <input type="text" ng-model="$ctrl.loginPassword" name="last-name" placeholder="Last Name">
+                </div>
+                <h4>Not a member yet?<span id="signUp">Sign-Up</span>
+        </h4>
+                <button class="ui button" id="submit" ng-click="$ctrl.login()" type="submit">Submit</button>
+            </form>
+        </div>
+        <div class="one wide column"></div>
+    </div>
+</div>
+
+<!---============= REGISTRATION FORM START====================== -->
+
+<div style="max-width:600px;" class="ui small modal">
+    <i class="close icon"></i>
+    <div class="header">
+        SignUp
+    </div>
+    <div class="description ui grid">
+        <div class="two wide column"></div>
+        <form name="registrationForm" style="margin-top:20px;margin-bottom:20px;" class="ui form twelve wide column">
+            <div class="field">
+                <label>Username</label>
+                <input ng-change="$ctrl.checkUsename()" required minlength='3' type="text" ng-model="$ctrl.username" name="name" placeholder="First Name">
+                <div ng-if="(registrationForm.name.$error.minlength ||
+                   registrationForm.name.$error.required) && registrationForm.name.$touched" class="ui pointing red basic label">
+                    Please Enter Name and it would be greater then 2 words
+            </div>
+            <div ng-if="$ctrl.usernameNotavailable" class="ui pointing red basic label">
+                Username not available
+            </div>
+    </div>
+    <div class="field">
+        <label>E-mail</label>
+        <input type="email" required ng-model="$ctrl.email" name="email" placeholder="First Name">
+        <div ng-if="(registrationForm.email.$invalid) && registrationForm.email.$touched" class="ui pointing red basic label">
+            Please Enter email and it will be in form abc@xyz.com
+        </div>
+    </div>
+    <div ng-if="$ctrl.showLoader" class="ui segment">
+        <div class="ui active dimmer">
+            <div class="ui text loader">Loading</div>
+        </div>
+        <p></p>
+    </div>
+    <div class="field">
+        <label>Password</label>
+        <input required type="password" ng-model="$ctrl.registerPassword" name="password" placeholder="Last Name">
+        <div class="ui pointing red basic label" ng-if="(registrationForm.password.$invalid) && registrationForm.password.$touched">
+            Please eneter password
+        </div>
+
+    </div>
+
+
+    <div ng-if="$ctrl.registrationSuccessful" class="ui steps">
+        <div class="completed step">
+            <i class="payment icon"></i>
+            <div class="content">
+                <div class="title">Registration</div>
+                <div class="description">Registration Successful</div>
+            </div>
+        </div>
+    </div>
+    <!-- <button class="ui button" id="submit" type="submit">Submit</button> -->
+
+    <div class="two wide column"></div>
+</div>
+<div class="actions">
+    <div class="ui black deny button">
+        Nope
+    </div>
+    <button ng-disabled="registrationForm.$invalid || $ctrl.usernameNotavailable" ng-click="$ctrl.register($event)" class="ui positive right labeled icon button">
+            Sign-Up
+            <i class="checkmark icon"></i>
+        </button>
+</div>
+</form>
+</div>
