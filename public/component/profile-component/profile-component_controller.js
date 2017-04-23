@@ -16,7 +16,7 @@
 
         function activate() {
             var username = $stateParams.username;
-             vm.url="http://localhost:3005/#!/"+username;
+             vm.url="http://35.166.116.182/#!/"+username;
             vm.username = $stateParams.username;
             LoginService.getProfileData(vm.username)
                 .then(function(response) {
