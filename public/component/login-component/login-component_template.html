@@ -41,7 +41,7 @@
         <form name="registrationForm" style="margin-top:20px;margin-bottom:20px;" class="ui form twelve wide column">
             <div class="field">
                 <label>Username</label>
-                <input ng-check="$ctrl.checkUsename()" required minlength='3' type="text" ng-model="$ctrl.username" name="name" placeholder="First Name">
+                <input ng-blur="$ctrl.checkUsename()" required minlength='3' type="text" ng-model="$ctrl.username" name="name" placeholder="First Name">
                 <div ng-if="(registrationForm.name.$error.minlength ||
                    registrationForm.name.$error.required) && registrationForm.name.$touched" class="ui pointing red basic label">
                     Please Enter Name and it would be greater then 2 words
