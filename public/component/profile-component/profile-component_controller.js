@@ -4,7 +4,7 @@
         .component('profileComponent', {
             templateUrl: 'component/profile-component/profile-component_template.html',
             bindings: {
-
+                user:'<'
             },
             controller: ProfileController
         });
@@ -15,9 +15,8 @@
         vm.$onInit = activate;
 
         function activate() {
-            var username = $stateParams.username;
-             vm.url="http://35.166.116.182/#!/"+username;
-            vm.username = $stateParams.username;
+            vm.username = vm.user.user.username;
+             vm.url="http://35.166.116.182/#!/"+vm.username;
             LoginService.getProfileData(vm.username)
                 .then(function(response) {
                     vm.feedback = response.data;

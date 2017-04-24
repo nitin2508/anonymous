@@ -57,7 +57,6 @@
 
                 },function(err){
                     vm.registrationError = err.data.err;
-                    console.log(err);
                 }).finally(function() {
                     vm.showLoader = false;
                 });
@@ -75,7 +74,6 @@
                         } else {
                             vm.usernameNotavailable = false;
                         }
-                        console.log(response);
                     });
             }
 
@@ -89,13 +87,11 @@
             LoaderService.showLoader();
             LoginService.doLogin(loginParam)
                 .then(function(response) {
-                    console.log(response.user.username);
                     $state.go('profile', {
                         username: response.user.username
                     });
                 }, function(err) {
                     vm.loginError = err.data.err;
-                    console.log(err);
                 }).finally(function() {
                     LoaderService.hideLoader();
                 });

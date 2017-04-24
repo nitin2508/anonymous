@@ -1,11 +1,11 @@
 <div ng-class="$ctrl.showHeader ? 'fixed-header':''" class="ui menu">
-    <div style="padding:4px;" class="header item">
+    <div style="padding:4px;cursor:pointer" ng-click="$ctrl.goToHome()" class="header item">
             <img style="height:56px ;width:56px;" src="./images/mask.png" alt="">
         <p style=" font-size: 21px;margin-left: 10px;">ANONYMOUS</p>
     </div>
-    <div class="right menu">
+    <div ng-if="$ctrl.user" class="right menu">
         <div class="header item">
-            <!-- <div class="ui primary button">Sign Up</div> -->
+            <button ng-click="$ctrl.logout()" class="ui primary button">Logout {{$ctrl.user.user.username}}</button>
         </div>
     </div>
 </div>

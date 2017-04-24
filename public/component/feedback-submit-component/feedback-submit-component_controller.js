@@ -24,7 +24,6 @@
             vm.feedbackSubmit = false;
             vm.editFeedback = editFeedback;
             vm.sendFeedback = sendFeedback;
-            console.log($stateParams);
             vm.username = $stateParams.username;
             LoginService.checkUser({
                 username: vm.username
@@ -45,8 +44,6 @@
         }
 
         function sendFeedback() {
-            console.log('fghjk');
-            console.log(vm.feedback);
             var feedbackJson = {
                 username: vm.username,
                 feedback: vm.feedback

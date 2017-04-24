@@ -16,16 +16,29 @@
                     controller: 'LogInController'
                 })
                 .state('profile', {
-                    url: '/profile/:username',
+                    url: '/',
                     views: {
                         'header': {
-                            template: '<header-component></header-component>'
+                            template: '<header-component user="$resolve.data"></header-component>'
                         },
                         'body': {
-                            template: '<profile-component></profile-component>'
+                            template: '<profile-component user="$resolve.data"></profile-component>'
                         }
                     },
-                    controller: 'profile'
+                    // controller: 'profile',
+                    resolve: {
+                        data: ['$http', '$state', function($http, $state) {
+                                return $http.get('/user')
+                                .then(function(response) {
+                                    console.log(response);
+                                    return response.data;
+                                }, function(err) {
+                                    if (err) {
+                                        $state.go('login');
+                                    }
+                                });
+                        }]
+                    }
                 })
                 .state('feedback', {
                     url: '/:username',
@@ -39,7 +52,7 @@
                     }
                 });
 
-                
-            $urlRouterProvider.otherwise('/login');
+
+            $urlRouterProvider.otherwise('/');
         }]);
 })();

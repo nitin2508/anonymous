@@ -22,6 +22,7 @@ exports.verifyOrdinaryUser = function (req, res, next) {
                 return next(err);
             } else {
                 // if everything is good, save to request for use in other routes
+                console.log("decoded",decoded);
                 req.decoded = decoded;
                 next();
             }
