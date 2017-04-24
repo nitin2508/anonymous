@@ -1,8 +1,8 @@
 <div class="">
     <div class="ui  grid">
-        <div class="four wide column"></div>
-        <div class="five wide column"></div>
-        <div style="margin-top:10vh" class="ui existing segment five wide column">
+        <div class=" computer only four wide column"></div>
+        <div class=" one wide tablet one wide mobile five wide computer column"></div>
+        <div style="margin-top:10vh" class="ui existing segment fourteen wide tablet  five wide computer column">
             <h3 class="event-heading">Log In</h3>
             <form class="ui form">
 
@@ -13,6 +13,12 @@
                 <div class="field">
                     <label>Password</label>
                     <input type="text" ng-model="$ctrl.loginPassword" name="last-name" placeholder="Last Name">
+                </div>
+                <div ng-if="$ctrl.loginError" style="display:block"  class="ui error message">
+                    <i class="close icon"></i>
+                    <div class="header">
+                        {{$ctrl.loginError.message}}
+                    </div>
                 </div>
                 <h4>Not a member yet?<span id="signUp">Sign-Up</span>
         </h4>
@@ -35,7 +41,7 @@
         <form name="registrationForm" style="margin-top:20px;margin-bottom:20px;" class="ui form twelve wide column">
             <div class="field">
                 <label>Username</label>
-                <input ng-change="$ctrl.checkUsename()" required minlength='3' type="text" ng-model="$ctrl.username" name="name" placeholder="First Name">
+                <input ng-check="$ctrl.checkUsename()" required minlength='3' type="text" ng-model="$ctrl.username" name="name" placeholder="First Name">
                 <div ng-if="(registrationForm.name.$error.minlength ||
                    registrationForm.name.$error.required) && registrationForm.name.$touched" class="ui pointing red basic label">
                     Please Enter Name and it would be greater then 2 words
@@ -64,6 +70,12 @@
             Please eneter password
         </div>
 
+    </div>
+    <div ng-if="$ctrl.registrationError" style="display:block"  class="ui error message">
+        <i class="close icon"></i>
+        <div class="header">
+            Email should be unique
+        </div>
     </div>
 
 

@@ -55,6 +55,9 @@
                     }, 3000);
 
 
+                },function(err){
+                    vm.registrationError = err.data.err;
+                    console.log(err);
                 }).finally(function() {
                     vm.showLoader = false;
                 });
@@ -91,6 +94,7 @@
                         username: response.user.username
                     });
                 }, function(err) {
+                    vm.loginError = err.data.err;
                     console.log(err);
                 }).finally(function() {
                     LoaderService.hideLoader();

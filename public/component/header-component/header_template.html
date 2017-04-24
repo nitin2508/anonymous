@@ -1,10 +1,12 @@
-<div class="ui menu">
-    <div class="header item">
-        Our Company
+<div ng-class="$ctrl.showHeader ? 'fixed-header':''" class="ui menu">
+    <div style="padding:4px;" class="header item">
+            <img style="height:56px ;width:56px;" src="./images/mask.png" alt="">
+        <p style=" font-size: 21px;margin-left: 10px;">ANONYMOUS</p>
     </div>
     <div class="right menu">
         <div class="header item">
-            <div class="ui primary button">Sign Up</div>
+            <!-- <div class="ui primary button">Sign Up</div> -->
         </div>
     </div>
 </div>
+<!-- ng-class="$ctrl.showHeader ? 'header':''" -->
