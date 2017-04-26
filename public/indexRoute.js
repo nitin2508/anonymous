@@ -16,7 +16,7 @@
                     controller: 'LogInController'
                 })
                 .state('profile', {
-                    url: '/',
+                    url: '/profile',
                     views: {
                         'header': {
                             template: '<header-component user="$resolve.data"></header-component>'
@@ -53,6 +53,6 @@
                 });
 
 
-            $urlRouterProvider.otherwise('/');
+            $urlRouterProvider.otherwise('/profile');
         }]);
 })();
