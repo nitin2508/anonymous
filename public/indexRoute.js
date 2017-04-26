@@ -1,7 +1,8 @@
 (function() {
     'use strict';
     angular.module('Sayat')
-        .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+        .config(['$stateProvider', '$urlRouterProvider','$locationProvider', function($stateProvider,
+             $urlRouterProvider,$locationProvider) {
             $stateProvider
                 .state('login', {
                     url: '/login',
@@ -53,6 +54,10 @@
                 });
 
 
+                $locationProvider.html5Mode({
+      enabled: true,
+      requireBase: false
+    });
             $urlRouterProvider.otherwise('/profile');
         }]);
 })();
