@@ -41,7 +41,7 @@
                     }
                 })
                 .state('feedback', {
-                    url: '/:username',
+                    url: '/feedback/:username',
                     views: {
                         'header': {
                             template: '<header-component></header-component>'
