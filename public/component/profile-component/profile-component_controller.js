@@ -16,7 +16,7 @@
 
         function activate() {
             vm.username = vm.user.user.username;
-             vm.url="http://nitinnagarlab/"+vm.username;
+             vm.url="http://nitinnagarlab.com/"+vm.username;
             LoginService.getProfileData(vm.username)
                 .then(function(response) {
                     vm.feedback = response.data;
