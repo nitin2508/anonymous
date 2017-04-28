@@ -1,8 +1,9 @@
 (function() {
     'use strict';
     angular.module('Sayat')
-        .config(['$stateProvider', '$urlRouterProvider','$locationProvider', function($stateProvider,
-             $urlRouterProvider,$locationProvider) {
+        .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider,
+            $urlRouterProvider, $locationProvider) {
+
             $stateProvider
                 .state('login', {
                     url: '/login',
@@ -16,6 +17,7 @@
                     },
                     controller: 'LogInController'
                 })
+
                 .state('profile', {
                     url: '/profile',
                     views: {
@@ -29,7 +31,7 @@
                     // controller: 'profile',
                     resolve: {
                         data: ['$http', '$state', function($http, $state) {
-                                return $http.get('/user')
+                            return $http.get('/app/user')
                                 .then(function(response) {
                                     console.log(response);
                                     return response.data;
@@ -42,7 +44,7 @@
                     }
                 })
                 .state('feedback', {
-                    url: '/feedback/:username',
+                    url: '/:username',
                     views: {
                         'header': {
                             template: '<header-component></header-component>'
@@ -54,10 +56,10 @@
                 });
 
 
-                $locationProvider.html5Mode({
-      enabled: true,
-      requireBase: false
-    });
+            $locationProvider.html5Mode({
+                enabled: true,
+                requireBase: false
+            });
             $urlRouterProvider.otherwise('/profile');
         }]);
 })();

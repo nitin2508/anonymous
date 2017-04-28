@@ -5,7 +5,7 @@
     LoginService.$inject = ['$http'];
 
     function LoginService($http) {
-        var baseUrl ='';
+        var baseUrl ='/app';
 
         this.doRegistration = function(data) {
             return $http.post(baseUrl + '/register', data)

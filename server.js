@@ -55,8 +55,12 @@ app.use(function(req, res, next) {
 // routes ==================================================
 //require('./app/routes')(app);
 // pass our application into our routes
-app.use('/feedback', feedbackRouter);
-app.use('/', userRouter);
+
+app.use('/app/feedback', feedbackRouter);
+app.use('/app/', userRouter);
+app.get('/*', function(req, res){
+  res.sendFile(__dirname + '/public/index.html');
+}); 
 
 // app.use('/stats',statsRouter);
 // app.use('/image',imageUploadRouter);
