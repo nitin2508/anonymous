@@ -7,9 +7,9 @@
             },
             controller: FeedbackSubmitController
         });
-    FeedbackSubmitController.$inject = ['LoginService', '$stateParams', 'LoaderService'];
+    FeedbackSubmitController.$inject = ['LoginService', '$stateParams', 'LoaderService','$state'];
 
-    function FeedbackSubmitController(LoginService, $stateParams, LoaderService) {
+    function FeedbackSubmitController(LoginService, $stateParams, LoaderService,$state) {
         var vm = this;
         vm.$onInit = activate;
 
@@ -34,6 +34,7 @@
                     vm.userAvailable = true;
                 } else {
                     vm.userAvailable = false;
+                    $state.go('profile');
                 }
             });
         }
